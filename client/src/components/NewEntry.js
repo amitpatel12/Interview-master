@@ -36,7 +36,7 @@ const NewEntry = ({
             "http://localhost:8000/api/contacts",
             formData
           );
-          console.log(data);
+       
         setFormData({ name: "", spoc: "", email: "", mobileNo: "" });
         setIsModalOpen(false);
       } catch (error) {

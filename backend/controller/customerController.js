@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 export const newCustomer = async (req, res) => {
     try {
         const {name, email, mobileNo, spoc, date} = req.body
-        console.log('called customer')
+    
         const customer = new Customer({name, email, mobileNo, spoc, date})
 
         const result = await customer.save()
@@ -33,8 +33,7 @@ export const getCustomer = async (req, res) => {
     try {
         
         const result = await Customer.findOne({_id: req.params.id})
-        const options = { day: '2-digit', month: '2-digit', year: 'numeric' }
-        console.log(result?.createdAt?.toLocaleDateString('en-GB', options))
+       
 
         return res.status(200).json({result, msg:'successfully loaded customer'})
         
@@ -76,7 +75,7 @@ export const deleteSelectedCustomer = async (req, res) => {
         
         const { ids } = req.body;
         const objectIds = ids.map((id) => new mongoose.Types.ObjectId(id));
-        console.log(objectIds)
+        
       
         const result = await Customer.deleteMany({ _id: { $in: objectIds } });
 

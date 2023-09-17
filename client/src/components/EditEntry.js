@@ -52,7 +52,7 @@ const EditEntry = ({
       const { data } = await axios.get(
         `http://localhost:8000/api/contacts/${id}`);
 
-      console.log("editing called")
+   
       setFormData({
         name: data.result.name,
         email: data.result.email,

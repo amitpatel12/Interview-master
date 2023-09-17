@@ -59,7 +59,6 @@ const Form = ({ formData, setFormData, handleApi, text }) => {
       setFormData({ ...formData, ["date"]: date.toString() });
 
       // Process the form data or submit it to the server
-      console.log("Form submitted successfully!", formData);
       if(date)
       handleApi()
     }
