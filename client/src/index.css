@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-table th:not(:first-child),
+.ant-table td:not(:first-child) {
+  border-right: 1px solid #d9d9d9;
+}
+
+.ant-table-thead th {
+  border-right: none !important; 
+}
+
+.ant-table-thead th {
+  background-color: #574E7B !important; 
+  color: #fff !important; 
+}
+
+
