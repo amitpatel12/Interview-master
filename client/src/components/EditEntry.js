@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Input, Modal } from "antd";
 import axios from "axios";
 import Form from "./Form";
+import url from "../url";
 const EditEntry = ({
   isModalOpen,
   setIsModalOpen,
@@ -35,7 +36,7 @@ const EditEntry = ({
     try {
         
             const { data } = await axios.put(
-              `http://localhost:8000/api/contacts/${id}`,
+              `${url}/api/contacts/${id}`,
               formData
             );
             setId("");
@@ -50,7 +51,7 @@ const EditEntry = ({
  useEffect(() => {
     const getCustomers = async () => {
       const { data } = await axios.get(
-        `http://localhost:8000/api/contacts/${id}`);
+        `${url}/api/contacts/${id}`);
 
    
       setFormData({

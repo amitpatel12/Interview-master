@@ -19,6 +19,7 @@ import ViewData from "./components/ViewData";
 import axios from "axios";
 import exportToExcel from "./components/Export";
 import EditEntry from "./components/EditEntry";
+import url from "./url";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -147,7 +148,7 @@ const App = () => {
   useEffect(() => {
     const getCustomers = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8000/api/contacts");
+        const { data } = await axios.get(`${url}/api/contacts`);
         console.log(data);
         setFetchData(data.result);
         setDataSource(data.result);
@@ -185,7 +186,7 @@ const App = () => {
 
   const handleSelectedDelete = async () => {
     try {
-      await axios.post("http://localhost:8000/api/contacts/delete", {
+      await axios.post(`${url}/api/contacts/delete`, {
         ids: rowsKey,
       });
     } catch (error) {

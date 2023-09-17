@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import axios from 'axios';
+import url from '../url';
 const DeleteWarning = ({isModalOpen, setIsModalOpen, id, setId}) => {
 
   const showModal = () => {
@@ -8,7 +9,7 @@ const DeleteWarning = ({isModalOpen, setIsModalOpen, id, setId}) => {
   };
   const handleOk = async() => {
     try {
-        await axios.delete(`http://localhost:8000/api/contacts/${id}`)
+        await axios.delete(`${url}/api/contacts/${id}`)
         setId('');
         setIsModalOpen(false);
     } catch (error) {

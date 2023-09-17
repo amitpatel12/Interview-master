@@ -3,6 +3,7 @@ import { Button, Input, Modal } from "antd";
 import axios from "axios";
 import Form from "./Form";
 import { format } from "date-fns";
+import url from "../url";
 const NewEntry = ({
   isModalOpen,
   setIsModalOpen
@@ -33,7 +34,7 @@ const NewEntry = ({
     try {
       
           const { data } = await axios.post(
-            "http://localhost:8000/api/contacts",
+            `${url}/api/contacts`,
             formData
           );
        

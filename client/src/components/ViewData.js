@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'antd';
 import axios from 'axios';
+import url from '../url';
 const ViewData = ({isModalOpen, setIsModalOpen, id, setId}) => {
   const [customer, setCustomer] = useState()
  
@@ -16,7 +17,7 @@ const ViewData = ({isModalOpen, setIsModalOpen, id, setId}) => {
   useEffect(() => {
         const getCustomers = async () => {
           const { data } = await axios.get(
-            `http://localhost:8000/api/contacts/${id}`,
+            `${url}/api/contacts/${id}`,
           );
 
          setCustomer(data.result)
