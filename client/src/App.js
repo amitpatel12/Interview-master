@@ -186,9 +186,12 @@ const App = () => {
 
   const handleSelectedDelete = async () => {
     try {
-      await axios.post(`${url}/api/contacts/delete`, {
+      const {data} = await axios.post(`${url}/api/contacts/delete`, {
         ids: rowsKey,
       });
+      console.log(data);
+      if(data.result.acknowledged)
+        setRowSelect(false);
     } catch (error) {
       console.error(error);
     }
@@ -231,7 +234,6 @@ const App = () => {
                 className=" h-[33px] px-2 grid place-content-center font-[600] rounded-[4px] cursor-pointer hover:bg-opacity-90 bg-red-500"
                 onClick={() => {
                   handleSelectedDelete();
-                  setRowSelect(false);
                 }}
               >
                 Delete Selected
